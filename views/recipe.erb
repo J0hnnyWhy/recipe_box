@@ -1,2 +1,13 @@
 <h1>Recipe:<%=@recipe.title %></h1>
 <h3>Rating:<%=@recipe.rating %></h3>
+
+<h3>Add Ingredients:</h3>
+
+<form action='/ingredient_add/' method='post'>
+  <label for='new_ingredient'>Add Ingredient</label>
+  <input id='ingredient' name='ingredient' type='text'>
+  <button type='submit' class='btn btn-info'>Add Ingredient</button>
+</form>
+
+
+<p><a href='/'>Go to index page</a></p>
