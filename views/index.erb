@@ -23,3 +23,19 @@
   </div>
   <button type='submit' class='btn btn-info'>Add Recipe</button>
 </form>
+
+<% if @categories.any?() %>
+<% @categories.each() do |category| %>
+  <ul>
+      <li><a href='/category/<%=category.id()%>'> <%=category.cat_name()%></a></li>
+  </ul>
+    <%end%>
+<%else %>
+  <p> You have no categories!</p>
+<%end%>
+
+<form action='/category_add/' method='post'>
+  <label for='cat_name'>Category Name</label>
+  <input id='cat_name' name='cat_name' type='text'>
+  <button type='submit' class='btn btn-info'>Add Category</button>
+</form>
