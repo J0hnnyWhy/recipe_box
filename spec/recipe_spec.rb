@@ -9,4 +9,9 @@ describe(Recipe) do
       expect(test_recipe.ingredients()).to(eq([test_ingredient, test_ingredient2]))
     end
   end
+
+  it('validates presence of title') do
+    test_recipe = Recipe.create({:title => ''})
+    expect(test_recipe.save()).to(eq(false))
+  end
 end

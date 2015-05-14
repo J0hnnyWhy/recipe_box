@@ -13,6 +13,8 @@ end
 
 get('/recipe/:id') do
   @recipe = Recipe.find(params.fetch('id'))
+
+  @categories = Category.all()
   erb(:recipe)
 end
 
@@ -44,6 +46,11 @@ end
 post('/recipe_add/') do
   @title = params.fetch('title')
   @rating = params.fetch('rating')
+  if @recipe.save()
+    erb(:index)
+  else
+    erb(:errors)
+  end
   Recipe.create({:title => @title, :rating => @rating})
   @categories = Category.all()
   @recipes = Recipe.all()
