@@ -1,0 +1,14 @@
+<h1>Category:<%=@category.cat_name %></h1>
+
+<% if @category.recipes.any?() %>
+<% @category.recipes.each() do |recipe| %>
+  <ul>
+      <li><a href='/recipe/<%=recipe.id()%>'> <%=recipe.title()%></a></li>
+  </ul>
+    <%end%>
+<%else %>
+  <p> You have no recipes!</p>
+<%end%>
+
+
+<p><a href='/'>Go to index page</a></p>

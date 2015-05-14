@@ -8,6 +8,20 @@
   <input id='ingredient' name='ingredient' type='text'>
   <button type='submit' class='btn btn-info'>Add Ingredient</button>
 </form>
+<h3>Add Ingredients:</h3>
 
+<form action='/instruction_add/' method='post'>
+  <label for='new_Instruction'>Add Instruction</label>
+  <input id='instruction' name='instruction' type='text'>
+  <button type='submit' class='btn btn-info'>Add Instruction</button>
+</form><h3>Add Ingredients:</h3>
+
+
+<form action='/recipe_cat_add/' method='post'>
+  <input type='hidden' name='recipe_id'  value=<%= @recipe.id %>
+  <label for='cat_add'>Add a Category to this Recipe:</label>
+  <input id='cat_add' name='cat_add' type='text'>
+  <button type='submit' class='btn btn-info'>Add Category</button>
+</form>
 
 <p><a href='/'>Go to index page</a></p>

@@ -16,6 +16,23 @@ get('/recipe/:id') do
   erb(:recipe)
 end
 
+post('/recipe_cat_add/') do
+  cat_name = params.fetch('cat_add')
+  # new_category = Category.create({:cat_name => cat_name})
+  category = Category.find_by({:cat_name => cat_name})
+  recipe_id = params.fetch('recipe_id')
+  recipe = Recipe.find(recipe_id)
+  recipe.categories.push(category)
+  @recipe = recipe
+  erb(:recipe)
+end
+
+get('/category/:id') do
+  @category = Category.find(params.fetch('id'))
+  erb(:category)
+end
+
+
 post('/category_add/') do
   @cat_name = params.fetch('cat_name')
   Category.create({:cat_name => @cat_name})
@@ -33,7 +50,7 @@ post('/recipe_add/') do
   erb(:index)
 end
 
-post('/ingredient_add') do
+post('/ingredient_add/') do
   @recipe = Recipe.find(params.fetch('id'))
   @name = params.fetch('name')
   Ingredient.create({:name => @name, :recipe_id => recipe.id().to_i})
