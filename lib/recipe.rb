@@ -3,5 +3,5 @@ class Recipe < ActiveRecord::Base
   has_many(:instructions)
   has_and_belongs_to_many(:categories)
 
-  validates(:title, :presence => true)
+  
 end
